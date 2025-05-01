@@ -21,7 +21,7 @@ const { page } = Astro.props
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
-    <body class="px-8 text-gray-800 outfit bg-gray-200">
+    <body class="px-8 text-gray-800 outfit bg-gray-200 overflow-hidden relative">
         <Header {page} />
         <main class="w-full f-header flex items-center justify-center">
             <slot />
@@ -34,6 +34,10 @@ const { page } = Astro.props
     body {
         width: 100vw;
         height: 100dvh;
+    }
+    
+    *{
+        box-sizing: border-box;
     }
 
     .f-header {

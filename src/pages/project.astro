@@ -1,11 +1,47 @@
 ---
-import Layout from "@/layouts/Layout.astro"
-import { ClientRouter } from "astro:transitions"
+import Layout from '@/layouts/Layout.astro'
+import { User } from '@/lib/var'
+import { Icon } from 'astro-icon/components'
+import { ClientRouter } from 'astro:transitions'
 const page: string = 'Project'
+
+const url_api = 'https://api.github.com/users/dai-rewahandi/repos'
+// const repo = await fetch(url_api)
+// console.log(repo)
+
+const repo = await fetch(url_api)
+const data = await repo.json()
+
+const repos = Array.isArray(data) ? data.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()) : []
 ---
+
 <Layout page={page}>
     <ClientRouter />
-    <p>
-        Lorem ipsum dolor.
-    </p>
+    <div
+        class="flex w-[var(--box-mobile)] md:w-[var(--box-desktop)] md:-min-h-72 bg-gray-200 rounded-xl flex-col shadow-sm transition-all hover:shadow-2xl shadow-gray-400 border-2 border-gray-50 overflow-hidden"
+    >
+        <div class="flex w-full h-8 bg-gray-300 items-center px-2">
+            <a href="/" class="flex items-center">
+                <Icon name="solar:medal-ribbon-bold" class="text-orange-400" />{User.name}
+            </a>
+        </div>
+        <slot name="extra">
+            <p class="font-light leading-5" transition:name="extra" transition:animate="slide">
+                <ul class="p-4">
+                    {
+                        repos.map((item: any) => {
+                            return (
+                                <li class="flex items-center gap-2 text-sm">
+                                    <Icon name="solar:double-alt-arrow-right-bold-duotone" />
+                                    <a class="hover:underline" href={item.html_url} target="_blank">
+                                        {item.name}
+                                    </a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </p>
+        </slot>
+    </div>
 </Layout>
