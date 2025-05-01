@@ -1,7 +1,8 @@
-export const User: { name: string, url: string, desc: string} = {
+export const User: { name: string, url: string, desc: string, keywords: string} = {
   name: "Dai.r",
-  url: "/",
-  desc: "lorem ipsum dolor sit amet consectetur adipiscing elit."
+  url: "me.dairewahandi.or.id",
+  desc: "A web developer.",
+  keywords: "website, developer, astro, javascript, react, typescript, tailwindcss, html, css, scss"
 }
 
 export const Links: { name: string, url: string}[] = [

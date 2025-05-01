@@ -18,6 +18,23 @@ const { page } = Astro.props
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
 
         <title>{User.name}</title>
+        <meta name="description" content={User.desc}>
+        <meta name="keywords" content={User.keywords}>
+        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+
+        <meta name="og:title" content={User.name} property="og:title">
+        <meta name="og:description" content={User.desc} >
+        <meta name="og:image" content='tb.png' >
+        <meta name="og:url" content={User.url} >
+        <meta name="og:type" content="website" >
+        <meta name="og:site_name" content={User.name} >
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content={User.name}>
+        <meta name="twitter:description" content={User.desc}>
+        <meta name="twitter:image" content='tb.png'>
+
+
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
