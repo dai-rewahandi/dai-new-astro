@@ -1,0 +1,15 @@
+---
+import { Icon } from 'astro-icon/components'
+import Index from '../index.astro'
+import { ClientRouter } from 'astro:transitions'
+---
+
+<Index>
+    <ClientRouter />
+    <div class="p-4 font-light" slot="extra" transition:name="extra" transition:animate="slide">
+        <ul class="text-sm">
+            <li class="flex items-center"><b class="flex items-center"><Icon name='solar:double-alt-arrow-right-bold-duotone' />Freelance:</b> Membuat aplikasi web dengan React, Next.js, dan Astro</li>
+            <li class="flex items-center"><b class="flex items-center"><Icon name='solar:double-alt-arrow-right-bold-duotone' /> Pegawai:</b> Administrasi di sebuah perusahaan</li>
+        </ul>
+    </div>
+</Index>

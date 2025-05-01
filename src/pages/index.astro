@@ -1,16 +1,31 @@
 ---
-
+import { ClientRouter } from 'astro:transitions'
+import { Icon } from 'astro-icon/components'
+import Layout from '@/layouts/Layout.astro'
+import { User } from '@/lib/var'
+const page: string = 'Home'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout page={page}>
+    <ClientRouter />
+    <div
+        class="flex w-[var(--box-mobile)] md:w-[var(--box-desktop)] md:h-72 bg-gray-200 rounded-xl flex-col shadow-sm transition-all hover:shadow-2xl shadow-gray-400 border-2 border-gray-50 overflow-hidden"
+    >
+        <div class="flex w-full h-8 bg-gray-300 items-center px-2">
+            <a href="/" class="flex items-center">
+                <Icon name="solar:medal-ribbon-bold" class='text-orange-400' />{User.name}
+            </a>
+            <ul class="flex items-center ml-4 gap-2 text-sm">
+                <li><a href="/extra/skill">skill</a></li>
+                <li><a href="/extra/pekerjaan">pekerjaan</a></li>
+            </ul>
+        </div>
+        <slot name="extra">
+            <p class="p-4 font-light leading-5" transition:name="extra" transition:animate="slide">
+                Saya seorang pengembang web front-end dengan minat yang besar pada teknologi terbaru. Saya memiliki pengalaman dalam membangun
+                aplikasi web yang responsif dan scalable menggunakan Astro, React, dan Next.js. Saya selalu bersemangat untuk belajar hal-hal baru dan
+                mengembangkan proyek-proyek yang inovatif.
+            </p>
+        </slot>
+    </div>
+</Layout>

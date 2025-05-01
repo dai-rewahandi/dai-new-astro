@@ -1,0 +1,18 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { Icon } from 'astro-icon/components'
+import Index from '../index.astro'
+---
+
+<Index>
+    <ClientRouter />
+    <div class="p-4 font-light" slot="extra" transition:name="extra" transition:animate="slide">
+        <ul class="text-sm leading-6">
+            <li class="flex items-center"><b class="flex items-center"><Icon name="solar:double-alt-arrow-right-bold-duotone" />Front-End:</b> HTML, CSS, JavaScript, React, Next.js, Astro</li>
+            <li class="flex items-center"><b class="flex items-center"><Icon name='solar:double-alt-arrow-right-bold-duotone' />UI/UX:</b> InkScape, Figma</li>
+            <li class="flex items-center"><b class="flex items-center"><Icon name='solar:double-alt-arrow-right-bold-duotone' />Tools:</b> Git,NeoVim , VS Code, Terminal</li>
+            <li class="flex items-center"><b class="flex items-center"><Icon name='solar:double-alt-arrow-right-bold-duotone' />Back-End:</b> Node.js, Express.js, MongoDB</li>
+            <li class="flex items-center"><b class="flex items-center"><Icon name='solar:double-alt-arrow-right-bold-duotone' />Bahasa:</b> Indonesia, Inggris</li>
+        </ul>
+    </div>
+</Index>

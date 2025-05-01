@@ -1,0 +1,35 @@
+---
+import { User, Links } from '@/lib/var'
+
+const { page } = Astro.props
+---
+<header class="flex items-center justify-between w-full h-16">
+    <h2 class="text-3xl font-bold">{User.name}</h2>
+    <ul class="flex items-center gap-2 font-semibold">
+        {Links.map((link) => {
+            const IsActive = link.name === page ? 'active' : '';
+            return (
+                <li class={IsActive}>
+                    <a href={link.url}>{link.name}</a>
+                </li>
+            )
+        })}
+    </ul>
+    <button class="w-14 h-8 rounded-md bg-gray-50 text-gray-700 cursor-pointer">Get</button>
+</header>
+
+<style>
+    .active{
+        position: relative;
+    }
+    .active::before{
+        content: '';
+        position: absolute;
+        display: block;
+        bottom: -3px;
+        height: 4px;
+        border-radius: 6px;
+        background-color: var(--color-gray-700);
+        width: 100%;
+    }
+</style>

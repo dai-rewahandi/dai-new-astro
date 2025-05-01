@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+@theme {
+  --box-mobile: 300px;
+  --box-desktop: 500px;
+}

@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import { ClientRouter } from "astro:transitions"
+const page: string = 'Project'
+---
+<Layout page={page}>
+    <ClientRouter />
+    <p>
+        Lorem ipsum dolor.
+    </p>
+</Layout>
